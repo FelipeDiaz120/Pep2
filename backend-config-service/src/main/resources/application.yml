@@ -1,1 +1,13 @@
 
+server:
+  port: 8081
+spring:
+  application:
+    name: backend-config-service
+  cloud:
+    config:
+      server:
+        git:
+          default-label: master
+          uri: https://github.com/FelipeDiaz120/Pep2
+          search-paths: "config-data"
