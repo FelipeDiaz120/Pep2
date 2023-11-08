@@ -8,6 +8,6 @@ spring:
     config:
       server:
         git:
-          default-label: master
+          default-label: main
           uri: https://github.com/FelipeDiaz120/Pep2
           search-paths: "config-data"
