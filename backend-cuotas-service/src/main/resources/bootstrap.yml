@@ -3,7 +3,7 @@ spring:
     restart:
       aditional-paths: src/main/java
   application:
-    name: backend-estudiantes-service
+    name: backend-cuotas-service
   jpa:
     database: POSTGRESQL
     show-sql: true
