@@ -13,7 +13,7 @@ import pep2.backendcuotasservice.repository.CuotaRepository;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.concurrent.CyclicBarrier;
+
 
 @Service
 public class CuotaService {
@@ -137,7 +137,6 @@ public class CuotaService {
     }
     public void registrarDescuentoPromedio(String rut){
         ArrayList<CuotaEntity> cuotas = obtenerPorRut(rut);
-
         for (int i = 0; i < cuotas.size(); i++) {
             int montoConDescuento = adminService.descuentoPromedio(cuotas.get(i));
             CuotaEntity cuotaPendiente = cuotas.get(i);

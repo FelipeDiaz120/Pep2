@@ -1,8 +1,11 @@
 package pep2.backendestudiantesservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import pep2.backendestudiantesservice.entity.EstudianteEntity;
+
 import pep2.backendestudiantesservice.repository.EstudianteRepository;
 
 import java.util.ArrayList;
@@ -10,6 +13,7 @@ import java.util.Optional;
 
 @Service
 public class EstudianteService {
+
     @Autowired
     EstudianteRepository estudianteRepository;
     public EstudianteEntity guardarEstudiante(EstudianteEntity estudiante){
@@ -43,4 +47,7 @@ public class EstudianteService {
         //guardarUsuario(usuario);
         return sumatoria/puntajes.size();
     }
+
+
+
 }
