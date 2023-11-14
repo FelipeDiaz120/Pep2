@@ -25,6 +25,7 @@ public class CuotaService {
 
     @Autowired
     RestTemplate restTemplate;
+
     public CuotaEntity guardarCuota(CuotaEntity cuota) {
         return cuotasRepository.save(cuota);
     }
@@ -54,7 +55,7 @@ public class CuotaService {
 
     public void generarPagos(String rut, String tipoPago) {
         EstudianteEntity estudiante = obtenerDuenoPagoPorRut(rut);
-        LocalDate fechaEmisionCuotas = LocalDate.of(2023,3,10);
+        LocalDate fechaEmisionCuotas = LocalDate.now();
         int cuotas = 0;
         if (tipoPago.equals("Cuotas")) {
             String tipoColegio = estudiante.getTipoColegio();
@@ -125,6 +126,7 @@ public class CuotaService {
         ArrayList<CuotaEntity> cuotas = obtenerPorRut(cuota.getRutDuenoPago());
         cuota.setFechaPago(LocalDate.now());
         int montoConInteres = adminService.interesAtraso(cuota);
+        if (montoConInteres==1){return;}
         for (int i = 0; i < cuotas.size(); i++) {
             CuotaEntity pagoPendiente = cuotas.get(i);
             if (pagoPendiente.getEstado().equals("Pendiente")){

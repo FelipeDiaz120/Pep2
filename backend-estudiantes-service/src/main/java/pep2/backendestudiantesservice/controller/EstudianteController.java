@@ -2,6 +2,7 @@ package pep2.backendestudiantesservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pep2.backendestudiantesservice.entity.EstudianteEntity;
 import pep2.backendestudiantesservice.service.EstudianteService;
@@ -14,10 +15,11 @@ public class EstudianteController {
     @Autowired
     EstudianteService estudianteService;
     @PostMapping()
-    public ResponseEntity<EstudianteEntity> newEstudiante(@RequestBody EstudianteEntity estudiante) {
+    public ResponseEntity<EstudianteEntity> newEstudiante(@RequestBody  EstudianteEntity estudiante) {
         EstudianteEntity nuevoEstudiante = estudianteService.guardarEstudiante(estudiante);
         return ResponseEntity.ok(nuevoEstudiante);
     }
+
 
     @GetMapping("/")
     public ResponseEntity<ArrayList<EstudianteEntity>> listar() {

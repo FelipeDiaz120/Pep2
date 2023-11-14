@@ -67,6 +67,10 @@ public class AdminService {
             interes= (int) (cuota.getMonto() +cuota.getMonto() * 0.15);
             return interes;
         }
+        if (mesesAtraso < 0){
+            interes= (int) (cuota.getMonto() +cuota.getMonto() * 0.15);
+            return 1;
+        }
         return interes;
     }
     public int calcularAnosEgreso(EstudianteEntity estudiante){

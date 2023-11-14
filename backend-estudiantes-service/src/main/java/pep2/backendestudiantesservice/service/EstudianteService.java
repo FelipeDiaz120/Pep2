@@ -17,8 +17,15 @@ public class EstudianteService {
     @Autowired
     EstudianteRepository estudianteRepository;
     public EstudianteEntity guardarEstudiante(EstudianteEntity estudiante){
+        String rut = estudiante.getRut();
+        EstudianteEntity estudianteExiste=obtenerEstudiantePorRut(rut);
+        if(estudianteExiste ==null){
+        return estudianteRepository.save(estudiante);}
+        else estudiante.setId(estudianteExiste.getId());
         return estudianteRepository.save(estudiante);
     }
+
+
     public ArrayList<EstudianteEntity> obtenerEstudiantes(){
         return (ArrayList<EstudianteEntity>) estudianteRepository.findAll();
     }
@@ -37,16 +44,7 @@ public class EstudianteService {
             return false;
         }
     }
-    public int calcularPromedioPuntaje(EstudianteEntity estudiante){
-        ArrayList<Integer> puntajes = estudiante.getPuntajes();
-        int sumatoria=0;
-        for (int i=0; i<puntajes.size();i++){
-            sumatoria= sumatoria + puntajes.get(i);
-        }
-        estudiante.setPromedio(sumatoria/puntajes.size());
-        //guardarUsuario(usuario);
-        return sumatoria/puntajes.size();
-    }
+
 
 
 

@@ -10,9 +10,9 @@
 
 	</parent>
 	<groupId>tingeso_mingeso</groupId>
-	<artifactId>backend-estudiantes-service</artifactId>
+	<artifactId>backend-cuotas-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>backend-estudiantes-service</name>
+	<name>backend-cuotas-service</name>
 	<description>backend-estudiantes-service project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
